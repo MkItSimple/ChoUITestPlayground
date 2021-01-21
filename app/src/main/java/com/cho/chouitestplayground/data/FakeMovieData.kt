@@ -7,52 +7,53 @@ object FakeMovieData {
 
     const val FAKE_NETWORK_DELAY = 1000L
 
-    // Dummy Description
-    const val DESC_1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-
     val movies = arrayOf(
         Movie(
             0,
-            "Avengers Endgame",
-            R.drawable.endgame_h,
-            DESC_1,
+            "Avengers: Infinity War",
+//            "https://nyc3.digitaloceanspaces.com/open-api-spaces/open-api-static/blog/1/Infinity_War-infinity_war.png",
+            R.drawable.a_avengers,
+            "The Avengers and their allies must be willing to sacrifice all in an attempt to " +
+                    "defeat the powerful Thanos before his blitz of devastation and ruin puts an end to " +
+                    "the universe.",
             arrayListOf("Anthony Russo", "Joe Russo"),
             arrayListOf("Robert Downey Jr.", "Chris Hemsworth", "Mark Ruffalo", "+ more...")
         ),
         Movie(
             1,
-            "Mulan",
-            R.drawable.mulan_h,
-            DESC_1,
+            "The Rundown",
+//            "https://nyc3.digitaloceanspaces.com/open-api-spaces/open-api-static/blog/1/The_Rundown-the_rundown.png",
+            R.drawable.a_rundown,
+            "A tough aspiring chef is hired to bring home a mobster's son from the Amazon but " +
+                    "becomes involved in the fight against an oppressive town operator and the search " +
+                    "for a legendary treasure.",
             arrayListOf("R.J. Stewart", "James Vanderbilt"),
-            arrayListOf(
-                "Dwayne Johnson",
-                "Seann William Scott",
-                "Rosario Dawson",
-                "Christopher Walken"
-            )
+            arrayListOf("Dwayne Johnson", "Seann William Scott", "Rosario Dawson", "Christopher Walken")
         ),
         Movie(
             2,
-            "Incredible Hulk",
-            R.drawable.hulk_h,
-            DESC_1,
+            "The Godfather",
+//            "https://nyc3.digitaloceanspaces.com/open-api-spaces/open-api-static/blog/1/The_Godfather-fragment_factory.png",
+            R.drawable.a_father,
+            "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
             arrayListOf("Francis Ford Coppola"),
             arrayListOf("Marlon Brando", "Al Pacino", "James Caan")
         ),
         Movie(
             3,
-            "Spiderman Homecoming",
-            R.drawable.spiderman_h,
-            DESC_1,
+            "The Dark Knight",
+//            "https://nyc3.digitaloceanspaces.com/open-api-spaces/open-api-static/blog/1/The_Dark_Knight-fragment_factory_1.png",
+            R.drawable.a_batman,
+            "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
             arrayListOf("Christopher Nolan"),
             arrayListOf("Christian Bale", "Heath Ledger", "Aaron Eckhart")
         ),
         Movie(
             4,
-            "Black Panther",
-            R.drawable.blackpanter_h,
-            DESC_1,
+            "The Lord of the Rings: The Return of the King",
+//            "https://nyc3.digitaloceanspaces.com/open-api-spaces/open-api-static/blog/1/The_Lord_of_the_Rings_The_Return_of_the_King-fragment_factory_2.png",
+            R.drawable.a_ring,
+            "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
             arrayListOf("Peter Jackson"),
             arrayListOf("Elijah Wood", "Viggo Mortensen", "Ian McKellen")
         )

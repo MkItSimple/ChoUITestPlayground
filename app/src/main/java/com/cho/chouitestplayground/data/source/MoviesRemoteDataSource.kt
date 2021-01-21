@@ -3,11 +3,9 @@ package com.cho.chouitestplayground.data.source
 import com.cho.chouitestplayground.data.FakeMovieData
 import com.cho.chouitestplayground.data.Movie
 
-class MoviesRemoteDataSource:
-    MoviesDataSource {
+class MoviesRemoteDataSource: MoviesDataSource {
 
-    private var MOVIES_REMOTE_DATA = LinkedHashMap<Int, Movie>(
-        FakeMovieData.movies.size)
+    private var MOVIES_REMOTE_DATA = LinkedHashMap<Int, Movie>(FakeMovieData.movies.size)
 
     init {
         for (movie in FakeMovieData.movies){

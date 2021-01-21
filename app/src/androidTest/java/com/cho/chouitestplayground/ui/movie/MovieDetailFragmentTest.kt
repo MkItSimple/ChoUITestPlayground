@@ -17,7 +17,6 @@ import io.mockk.mockk
 import org.junit.Test
 import org.junit.runner.RunWith
 
-
 @RunWith(AndroidJUnit4ClassRunner::class)
 class MovieDetailFragmentTest{
 
@@ -33,7 +32,8 @@ class MovieDetailFragmentTest{
         val movie = Movie(
             movieId,
             title,
-            "https://nyc3.digitaloceanspaces.com/open-api-spaces/open-api-static/blog/1/The_Rundown-the_rundown.png",
+//            "https://nyc3.digitaloceanspaces.com/open-api-spaces/open-api-static/blog/1/The_Rundown-the_rundown.png",
+            R.drawable.a_rundown,
             description ,
             arrayListOf("R.J. Stewart", "James Vanderbilt"),
             arrayListOf("Dwayne Johnson", "Seann William Scott", "Rosario Dawson", "Christopher Walken")
@@ -78,7 +78,7 @@ class MovieDetailFragmentTest{
         val movie = Movie(
             movieId,
             title,
-            "https://nyc3.digitaloceanspaces.com/open-api-spaces/open-api-static/blog/1/The_Rundown-the_rundown.png",
+            R.drawable.a_rundown,
             description ,
             arrayListOf("R.J. Stewart", "James Vanderbilt"),
             arrayListOf("Dwayne Johnson", "Seann William Scott", "Rosario Dawson", "Christopher Walken")

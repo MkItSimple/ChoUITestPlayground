@@ -12,7 +12,6 @@ import com.cho.chouitestplayground.data.Movie
 import com.cho.chouitestplayground.data.source.MoviesDataSource
 import kotlinx.android.synthetic.main.fragment_movie_detail.*
 
-
 class MovieDetailFragment
 constructor(
     val requestOptions: RequestOptions,
