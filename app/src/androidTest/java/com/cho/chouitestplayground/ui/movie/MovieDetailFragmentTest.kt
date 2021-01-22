@@ -25,18 +25,17 @@ class MovieDetailFragmentTest{
 
         // SETUP
         val movieId = 1
-        val title = "The Rundown"
+        val title = "Spiderman Homecoming"
         val description = "A tough aspiring chef is hired to bring home a mobster's son from the Amazon but " +
                 "becomes involved in the fight against an oppressive town operator and the search " +
                 "for a legendary treasure."
         val movie = Movie(
             movieId,
             title,
-//            "https://nyc3.digitaloceanspaces.com/open-api-spaces/open-api-static/blog/1/The_Rundown-the_rundown.png",
             R.drawable.a_rundown,
             description ,
-            arrayListOf("R.J. Stewart", "James Vanderbilt"),
-            arrayListOf("Dwayne Johnson", "Seann William Scott", "Rosario Dawson", "Christopher Walken")
+            arrayListOf("Jon Watts"),
+            arrayListOf("Tom Holland", "Zendaya", "Michael Keaton", "Marisa Tomei")
         )
 
         val moviesDataSource = mockk<MoviesRemoteDataSource>()
@@ -71,7 +70,7 @@ class MovieDetailFragmentTest{
 
         // SETUP
         val movieId = 1
-        val title = "The Rundown"
+        val title = "Spiderman Homecoming"
         val description = "A tough aspiring chef is hired to bring home a mobster's son from the Amazon but " +
                 "becomes involved in the fight against an oppressive town operator and the search " +
                 "for a legendary treasure."
@@ -80,15 +79,10 @@ class MovieDetailFragmentTest{
             title,
             R.drawable.a_rundown,
             description ,
-            arrayListOf("R.J. Stewart", "James Vanderbilt"),
-            arrayListOf("Dwayne Johnson", "Seann William Scott", "Rosario Dawson", "Christopher Walken")
+            arrayListOf("Jon Watts"),
+            arrayListOf("Tom Holland", "Zendaya", "Michael Keaton", "Marisa Tomei")
         )
 
-        // NOTE:
-        // Also could have built a "FakeMoviesRemoteDataSource" (AKA a STUB).
-        // I don't think it matters in this case.
-        // Probably for a larger repository and more complex app I would stub the repository. Then
-        // you could test errors, various success cases, etc...
         val moviesDataSource = mockk<MoviesRemoteDataSource>()
         every {
             moviesDataSource.getMovie(movieId)

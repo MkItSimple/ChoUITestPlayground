@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity(),
             progress_bar.visibility = View.INVISIBLE
     }
 
-    // dependencies (typically would be injected with dagger)
     lateinit var requestOptions: RequestOptions
     lateinit var moviesDataSource: MoviesDataSource
 

@@ -4,16 +4,19 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.contrib.RecyclerViewActions.*
+import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
+import androidx.test.espresso.contrib.RecyclerViewActions.scrollTo
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import com.cho.chouitestplayground.R
 import com.cho.chouitestplayground.data.FakeMovieData
-import com.cho.chouitestplayground.ui.movie.MoviesListAdapter.*
+import com.cho.chouitestplayground.ui.movie.MoviesListAdapter.MovieViewHolder
 import com.cho.chouitestplayground.util.EspressoIdlingResourceRule
 import org.hamcrest.CoreMatchers.not
-import org.junit.*
+import org.junit.FixMethodOrder
+import org.junit.Rule
+import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.MethodSorters
 
@@ -23,6 +26,7 @@ class MovieListFragmentTest{
 
     val LIST_ITEM_IN_TEST = 4
     val MOVIE_IN_TEST = FakeMovieData.movies[LIST_ITEM_IN_TEST]
+    val movies =  FakeMovieData.movies
 
     @get:Rule
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
@@ -30,12 +34,20 @@ class MovieListFragmentTest{
     @get: Rule
     val espressoIdlingResoureRule = EspressoIdlingResourceRule()
 
-
     @Test
     fun a_test_isListFragmentVisible_onAppLaunch() {
         onView(withId(R.id.recycler_view)).check(matches(isDisplayed()))
 
         onView(withId(R.id.progress_bar)).check(matches(not(isDisplayed())))
+
+        val recyclerView = onView(withId(R.id.recycler_view))
+
+        for(movie in movies){
+            recyclerView.perform(
+                scrollTo<MovieViewHolder>(hasDescendant(withText(movie.title)))
+            )
+            onView(withText(movie.title + "")).check(matches(isDisplayed()))
+        }
     }
 
     @Test
