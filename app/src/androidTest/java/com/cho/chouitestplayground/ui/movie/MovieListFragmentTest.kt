@@ -1,7 +1,12 @@
 package com.cho.chouitestplayground.ui.movie
 
+import android.util.Log
+import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.pressBack
+import androidx.test.espresso.NoMatchingViewException
+import androidx.test.espresso.ViewAssertion
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
@@ -13,6 +18,7 @@ import com.cho.chouitestplayground.R
 import com.cho.chouitestplayground.data.FakeMovieData
 import com.cho.chouitestplayground.ui.movie.MoviesListAdapter.MovieViewHolder
 import com.cho.chouitestplayground.util.EspressoIdlingResourceRule
+import junit.framework.TestCase.assertEquals
 import org.hamcrest.CoreMatchers.not
 import org.junit.FixMethodOrder
 import org.junit.Rule
@@ -48,6 +54,13 @@ class MovieListFragmentTest{
             )
             onView(withText(movie.title + "")).check(matches(isDisplayed()))
         }
+
+//        onView(withId(R.id.recycler_view)).check(matches(hasChildCount(2)))
+
+        onView(withId(R.id.recycler_view))
+            .check(RecyclerViewItemCountAssertion(movies.size))
+
+        Log.d("expected", "${movies.size}")
     }
 
     @Test
@@ -119,6 +132,28 @@ class MovieListFragmentTest{
 
 
 }
+
+class RecyclerViewItemCountAssertion(
+    private val size: Int
+) : ViewAssertion {
+
+    override fun check(
+        view: View,
+        noViewFoundException: NoMatchingViewException?
+    ) {
+        if (noViewFoundException != null) {
+            throw noViewFoundException
+        }
+        val recyclerView = view as RecyclerView
+        val adapter = recyclerView.adapter
+        Log.d("expected", "adapter count: ${adapter!!.itemCount}")
+//        assertTrue { adapter.itemCount == expectedCount }
+        assertEquals(adapter.itemCount, size)
+    }
+
+}
+
+
 
 
 
